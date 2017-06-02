@@ -31,13 +31,13 @@ def scrapepdf(url):
       #so we use try here to stop it breaking the whole thing
     try:
 #This line tests how many matches we get
-    print 'SCHOOL NAME? ', name.text.encode('ascii', 'ignore')
+      print 'SCHOOL NAME? ', name.text.encode('ascii', 'ignore')
 #There's only one when tested, so let's store the first and only match
 #see https://docs.python.org/2/howto/unicode.html
 #for more on .encode('ascii', 'xmlcharrefreplace')
       record['schoolname'] = schoolname[0].text.encode('ascii', 'xmlcharrefreplace')
-      except AttributeError:
-        print 'AttributeError - ignored'
+    except AttributeError:
+       print 'AttributeError - ignored'
 
 #Now the date, which is in <text top="224" left="661" width="147" height="18" font="2"
   dateinspected = pdfroot.findall('.//text[@top="224"]')
