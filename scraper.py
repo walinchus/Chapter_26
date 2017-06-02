@@ -66,22 +66,22 @@ def scrapepdf(url):
             linebefore = "EMPTY LINE"
             lineafter = "EMPTY LINE"
             incontextlist = []
-          if pdfroot.xpath('.//text')[linenumber-2].text:
-            linebefore = pdfroot.xpath('.//text')[linenumber-2].text
-            incontextlist.append(linebefore)
-            incontextlist.append(pdfroot.xpath('.//text')[linenumber-1].text)
-          if pdfroot.xpath('.//text')[linenumber].text is not None:
-            lineafter = pdfroot.xpath('.//text')[linenumber].text
-            incontextlist.append(lineafter)
-          record["mention in context"] = ''.join(incontextlist)
-          record["linenumber"] = linenumber
+            if pdfroot.xpath('.//text')[linenumber-2].text:
+              linebefore = pdfroot.xpath('.//text')[linenumber-2].text
+              incontextlist.append(linebefore)
+              incontextlist.append(pdfroot.xpath('.//text')[linenumber-1].text)
+            if pdfroot.xpath('.//text')[linenumber].text is not None:
+              lineafter = pdfroot.xpath('.//text')[linenumber].text
+              incontextlist.append(lineafter)
+            record["mention in context"] = ''.join(incontextlist)
+            record["linenumber"] = linenumber
 #we add .encode to avoid any unicode-related errors
-          print line.text.encode('ascii', 'ignore')
-          record['url'] = url
-          record['text'] = line.text.encode('ascii', 'ignore')
-          record['reportline'] = url+str(linenumber)
-          print 'ALL DATA: ', record
-          scraperwiki.sqlite.save(['reportline'],record)
+            print line.text.encode('ascii', 'ignore')
+            record['url'] = url
+            record['text'] = line.text.encode('ascii', 'ignore')
+            record['reportline'] = url+str(linenumber)
+            print 'ALL DATA: ', record
+            scraperwiki.sqlite.save(['reportline'],record)
 
 #This line just tests the above function on one URL...
 #...but you can delete it once you start testing the functions below
