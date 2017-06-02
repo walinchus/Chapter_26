@@ -26,16 +26,16 @@ def scrapepdf(url):
    #school name is in <text top="148" left="85" width="443" height="40" font="4">
   #We try to identify lines with font="4"
   schoolname = pdfroot.findall('.//text[@font="4"]')
-    for name in schoolname:
+   for name in schoolname:
       #sometimes we get an AttributeError
       #so we use try here to stop it breaking the whole thing
-      try:
+    try:
 #This line tests how many matches we get
-        print 'SCHOOL NAME? ', name.text.encode('ascii', 'ignore')
+    print 'SCHOOL NAME? ', name.text.encode('ascii', 'ignore')
 #There's only one when tested, so let's store the first and only match
 #see https://docs.python.org/2/howto/unicode.html
 #for more on .encode('ascii', 'xmlcharrefreplace')
-        record['schoolname'] = schoolname[0].text.encode('ascii', 'xmlcharrefreplace')
+      record['schoolname'] = schoolname[0].text.encode('ascii', 'xmlcharrefreplace')
       except AttributeError:
         print 'AttributeError - ignored'
 
