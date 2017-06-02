@@ -63,9 +63,9 @@ def scrapepdf(url):
             print range(linenumber-2,linenumber+1)
             #create 2 variables to store those lines for now...
             #...but have some default text
-          linebefore = "EMPTY LINE"
-          lineafter = "EMPTY LINE"
-          incontextlist = []
+            linebefore = "EMPTY LINE"
+            lineafter = "EMPTY LINE"
+            incontextlist = []
           if pdfroot.xpath('.//text')[linenumber-2].text:
             linebefore = pdfroot.xpath('.//text')[linenumber-2].text
             incontextlist.append(linebefore)
