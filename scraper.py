@@ -26,7 +26,7 @@ def scrapepdf(url):
    #school name is in <text top="148" left="85" width="443" height="40" font="4">
   #We try to identify lines with font="4"
   schoolname = pdfroot.findall('.//text[@font="4"]')
-   for name in schoolname:
+  for name in schoolname:
       #sometimes we get an AttributeError
       #so we use try here to stop it breaking the whole thing
     try:
